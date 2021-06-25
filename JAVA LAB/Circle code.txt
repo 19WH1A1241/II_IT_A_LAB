@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Circle
+{
+	public static void main(String[] args) {
+		float r , pi , Area , Circum;
+		pi = 22 / 7;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("r = ");
+		r = sc.nextInt();
+		Area = pi * r * r;
+		Circum = 2 * pi * r;
+		System.out.println("Area = "+Area);
+		System.out.println("Circumference = "+Circum);
+	}
+}
+
