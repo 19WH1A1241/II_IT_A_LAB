@@ -1,0 +1,30 @@
+create table bus(Busno int primary key, Fromplace varchar(20), Destination varchar(20));
+insert into bus values(101, 'Hyderabad', 'Banglore');
+insert into bus values(102, 'Hyderabad', 'Andhra Pradesh');
+insert into bus values(103, 'Andhra Pradesh', 'Delhi');
+select * from bus;
+update bus set fromplace='up' where Busno=102;
+select * from bus;
+
+create table passenger(pid int primary key, pname varchar(20), phno int(10), page int, pgender char);
+insert into passenger values(1, 'Rajani', 1234, 21, 'F');
+insert into passenger values(2, 'Chaithu', 5678, 12, 'F');
+insert into passenger values(3, 'Sirisha', 9101, 45, 'M');
+insert into passenger values(4, 'Divya', 1213, 73, 'F');
+delete from passenger where pid=2;
+select * from passenger;
+
+create table reservation(rid int primary key, pid int, foreign key(pid) references passenger(pid) , dojourney date not null, status varchar(5), address varchar(30), phno int ,noSeats int);
+insert into reservation values(1, 1, 20210126, "R", "str-3", 12345, 4);
+insert into reservation values(2, 1, 20210128, "R", "str-3", 12345, 4);
+insert into reservation values(3, 1, 20210126, "C", "str-8", 16345, 2);
+alter table reservation add destination varchar(20);
+update reservation set destination='Hyderabad';
+select * from reservation;
+alter table reservation drop destination;
+select * from reservation;
+
+create table cancellation(cid int primary key, rid int, foreign key(rid) references reservation(rid) , phno int, dojourney date not null, address char(20));
+insert into cancellation values(1, 1, 1234, 20210121, "str-3");
+alter table cancellation modify address varchar(20);
+select * from cancellation;
