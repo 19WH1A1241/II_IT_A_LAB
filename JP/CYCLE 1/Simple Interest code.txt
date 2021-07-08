@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class SimpleInterest
+{
+	public static void main(String[] args) {
+		int p , r , t , SI;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("P : ");
+        p = sc.nextInt();
+        System.out.print("R : ");
+        r = sc.nextInt();
+        System.out.print("T : ");
+        t = sc.nextInt();
+        SI = (p * r * t) / 100;
+        System.out.print("Simple Interest is: " +SI);
+    }
+}
+
